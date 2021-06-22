@@ -8,12 +8,12 @@ license = "GPL-3.0-only"
 
 readme = "README.md"
 
-repository = "https://github.com/dial-app/dial-gui"
-homepage = "https://github.com/dial-app/dial-gui"
+repository = "https://github.com/JDM-ULL-93/dial-gui"
+homepage = "https://github.com/JDM-ULL-93/dial-gui"
 
 [tool.poetry.dependencies]
 python = ">=3.6.0, <=3.8.3"
-dial-core = ">=0.21a0"
+#dial-core = { git="https://github.com/JDM-ULL-93/dial-core" }
 
 PySide2 = "^5.12.6"
 qimage2ndarray = "^1.8.3"

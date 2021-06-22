@@ -7,7 +7,17 @@ from .graphics_connection_painter import (
     GraphicsConnectionPainterFactory,
 )
 from .graphics_node import GraphicsNode, GraphicsNodeFactory
-from .graphics_port import GraphicsPort
+"""
+Agregado por: JDM 10/03/2021
+    Description:
+        Error en las pruebas unitarias ejecutadas con PyTest:
+            "ImportError: cannot import name 'GraphicsPortFactory' from 'dial_gui.node_editor'
+           (a:\programas\visualstudio\shared\python37_64\lib\site-packages\dial_gui\node_editor\__init__.py)"
+    Solution:
+        Añadir la entrada "GraphicsPortFactory" a "from .graphics_port import GraphicsPort"
+        Añadir a __all__ la entrada "GraphicsPortFactory"
+"""
+from .graphics_port import GraphicsPort, GraphicsPortFactory #GraphicsPortFactory. Reason:
 from .graphics_port_painter import GraphicsPortPainter
 from .graphics_scene import GraphicsScene, GraphicsSceneFactory
 
@@ -20,6 +30,7 @@ __all__ = [
     "GraphicsConnectionPainter",
     "GraphicsConnectionPainterFactory",
     "GraphicsPort",
+    "GraphicsPortFactory"
     "GraphicsPortPainter",
     "GraphicsSceneFactory",
 ]

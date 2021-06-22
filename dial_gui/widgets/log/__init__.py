@@ -7,4 +7,5 @@ This package includes several widgets that can be used to display a logging dial
 from .logger_dialog import LoggerDialogFactory
 from .logger_textbox import LoggerTextboxFactory
 
+
 __all__ = ["LoggerDialogFactory", "LoggerTextboxFactory"]

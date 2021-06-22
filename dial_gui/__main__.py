@@ -8,7 +8,8 @@ Entry point for dial ui.
 import sys
 from typing import List
 
-
+#Para instalar modulo referenciendo desde local:
+#pip install -e "C:\Users\DuquePC\source\repos\Practicas-TFG\dial-basic-nodes"
 def main(sys_args: List = sys.argv[1:]):
     """
     Entry point for Dial. Initialize components and stars the application.
@@ -29,6 +30,7 @@ def main(sys_args: List = sys.argv[1:]):
     from dial_gui import app
 
     # Run
+    
     sys.exit(app.run(app_config))
 
 

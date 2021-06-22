@@ -82,10 +82,24 @@ def __plugins_initialization(args: "argparse.Namespace"):
     pkg_resources.working_set.add_entry(plugins_install_abs_path)
 
     LOGGER.info("%s added to sys.path", plugins_install_abs_path)
-
+  
+    #ToDo: Añadir una condición para que... Si se pasa por comandos una ruta a json, se cargue ese JSON
+    #Sino:
     plugins_manager = PluginManagerSingleton(
         application.installed_plugins_file_content()
     )
+    #Info:
+    # Del JSON se espera el siguiente formato:
+    """
+    {
+        "<nombre>": { //El nombre del plugin debe corresponder, probar con "dial-basic-nodes"
+            "version": <version>,
+            "summary": <str>,
+            "active": <boolean>
+            [,"path" : <str>]
+        }
+    }
+    """
 
     LOGGER.debug("Installed plugins: %s", plugins_manager.installed_plugins)
 

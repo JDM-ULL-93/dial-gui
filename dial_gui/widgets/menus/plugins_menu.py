@@ -47,10 +47,14 @@ class PluginsMenu(QMenu):
 
     def __open_plugins_directory(self):
         """Opens the directory where plugins are stored on the system explorer."""
+        #Editado por JDM
+        #Razón: El codigo era incapaz de abrir el explorador si se trataba de una ruta local
         plugins_directory = application.plugins_directory()
-
-        QDesktopServices.openUrl(QUrl(plugins_directory, QUrl.TolerantMode))
-
+        import pathlib
+        if (type(plugins_directory) is pathlib.PosixPath) or (type(plugins_directory) is pathlib.WindowsPath): #Se trata de una ruta local
+            QDesktopServices.openUrl(QUrl("file:///"+str(plugins_directory), QUrl.TolerantMode))
+        else: #Es una URL
+            QDesktopServices.openUrl(QUrl(str(plugins_directory), QUrl.TolerantMode))
     def mouseReleaseEvent(self, event):
         """Ignores right clicks on the QMenu (Avoids unintentional clicks)"""
         if event.button() == Qt.RightButton:  # Ignore right clicks
